@@ -1,0 +1,96 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+    gap: 2px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell.hit {
+    background-color: red;
+    animation: flash 0.3s linear;
+}
+
+.cell.miss {
+    background-color: lightblue;
+    animation: fade 0.5s ease-out;
+}
+
+.hit-animation {
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: explode 0.5s linear;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.miss-animation {
+    width: 30px;
+    height: 30px;
+    background-color: #00f;
+    border-radius: 50%;
+    animation: ripple 0.5s linear;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: orange;
+    }
+
+    100% {
+        background-color: red;
+    }
+}
+
+@keyframes fade {
+    0% {
+        background-color: lightblue;
+        opacity: 1;
+    }
+
+    100% {
+        background-color: lightblue;
+        opacity: 0.5;
+    }
+}
